@@ -15,7 +15,7 @@ Built by: DeadmanXXXII
 The fact that you are able to read this means it worked and your server processes .svg as much as this format like .pdf is highly recognized for simplicity of business functions.
 It's extremely dangerous.
 .txt .png only in a secure environment 
-.txt only in zero trust.
+.txt only in zero trust as you can re appendage later.
 
 #### Why?
 
