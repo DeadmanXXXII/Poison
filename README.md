@@ -16,3 +16,8 @@ The fact that you are able to read this means it worked and your server processe
 It's extremely dangerous.
 .txt .png only in a secure environment 
 .txt only in zero trust.
+
+#### Why?
+
+Simply because that could be disruption s+d.py in base64 and if you allow creation in your system as you haven't banned them and your cron policies are bad. You have about 3mins to check your last backup time and find that script, without responding to the request and packet floods thinking you are being Ddos'd when it activates before it erases upto 75% of all records on the device its managed to get hold of. By ten minutes if you haven't got a backup I hope your paper records are good.
+
