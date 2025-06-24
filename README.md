@@ -40,3 +40,37 @@ Description: This file is a Proof-of-Concept for a CSV Injection (Formula Inject
 
 Basic Formula Execution: The =2+2 formula demonstrates that the spreadsheet program is indeed interpreting and executing injected formulas, serving as a foundational test.
 Client-Side Command Execution (DDE): The =CMD|' /C calc'!A0 formula attempts to execute an operating system command (specifically, opening the calculator on a Windows machine) via Dynamic Data Exchange (DDE). While modern spreadsheet programs often display security warnings for DDE, its attempted execution proves the potential for arbitrary command execution on the client's system.
+
+
+### File: create_zip_bomb.py
+
+Description: This Python script is a utility designed to generate a "zip bomb" file. A zip bomb (also known as a "decompression bomb") is a malicious archive that is very small in compressed size but expands to an extremely large uncompressed size when extracted. This property makes them dangerous for causing Denial of Service (DoS) attacks by exhausting a target system's disk space, memory, or CPU resources during decompression.
+
+Functionality:
+The script works by leveraging recursive compression:
+
+Initial Dummy File: It first creates a highly compressible dummy file (e.g., filled with null bytes) of a specified size.
+Layered Compression: It then iteratively compresses the previously created zip file into a new zip file for a specified number of "layers." This process, though simple, leads to an exponential increase in the theoretical uncompressed size with each added layer. The zipfile.ZIP_STORED method is used in the recursive steps to ensure the internal zip files are stored without re-compression, making the expansion effect dramatic.
+Output: The final result is a small .zip file (e.g., dangerous_bomb.zip) that, when extracted by a target system, can expand to gigabytes or even terabytes, depending on the configured initial file size and number of layers.
+Usage/Parameters:
+The script's main function create_zip_bomb takes three key arguments:
+
+initial_file_size_mb: The size (in megabytes) of the initial highly compressible dummy file.
+num_layers: The number of times the recursive zipping process is performed. Each layer effectively multiplies the potential uncompressed size.
+output_filename: The desired name for the generated zip bomb file (defaults to dangerous_bomb.zip).
+Security Context & Purpose (PoC):
+This script is intended as a Proof of Concept (PoC) tool for cybersecurity professionals to demonstrate the severe impact of file upload vulnerabilities, specifically Denial of Service through resource exhaustion. By generating a zip bomb, researchers can test a target application's resilience against such attacks, identifying weaknesses in:
+
+File size limits (both compressed and uncompressed).
+Decompression safeguards (e.g., sandboxing, memory/CPU limits for file processing).
+Error handling and logging during unexpected resource consumption.
+Example Configuration (as per the script):
+The if __name__ == "__main__": block provides commented-out examples to generate zip bombs of varying uncompressed sizes. For instance, initial_mb = 100 and layers = 100 can create a zip bomb estimated to expand to approximately 100 GB.
+
+Caution: This tool generates files that can cause significant disruption. It should only be used in controlled environments, with explicit authorization, and strictly within the scope of responsible disclosure or bug bounty programs.
+
+### dangerous_bomb.zip
+
+This is an output if the above script with parameters 2GBs and 20 Layers.
+
+
