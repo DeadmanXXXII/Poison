@@ -1,7 +1,7 @@
 # Poison-
 This repo will consist of poisoned PDF, images, documents and pictures like those used by the North Korean APT's
 
-### poison_image.svg
+### File: poison_image.svg
 This is a basic example PoC of a svg image that forces a .txt download but is recognized by a server as a harmless blue blue square 🟦 like this one.
 The .txt file in particular just states
 
@@ -25,3 +25,18 @@ This was a 🟦 and is now an actual picture to seem less conspicuous.
 
 
 ![Usage](https://raw.githubusercontent.com/DeadmanXXXII/Poison/main/Nethinter-use-evidence.png)
+
+
+### File: mal.csv
+
+Description: This file is a Proof-of-Concept for a CSV Injection (Formula Injection) vulnerability. It contains specially crafted spreadsheet formulas designed to demonstrate two potential attack vectors:
+
+Data Exfiltration/External Interaction: The =HYPERLINK formula attempts to force an outbound HTTP/S request to a controlled external server (https://deadmanxxxii.requestcatcher.com/log). This proves that arbitrary external connections can be initiated from the victim's spreadsheet, allowing for potential data exfiltration or redirection to phishing sites.
+Web Service Interaction: The =WEBSERVICE formula attempts to fetch data from an external URL, similarly confirming external connectivity and potential data leakage or interaction with attacker-controlled web services.
+
+### File: malicious.csv
+
+Description: This file is a Proof-of-Concept for a CSV Injection (Formula Injection) vulnerability, focusing on internal formula execution and client-side command execution. It contains two primary malicious formulas:
+
+Basic Formula Execution: The =2+2 formula demonstrates that the spreadsheet program is indeed interpreting and executing injected formulas, serving as a foundational test.
+Client-Side Command Execution (DDE): The =CMD|' /C calc'!A0 formula attempts to execute an operating system command (specifically, opening the calculator on a Windows machine) via Dynamic Data Exchange (DDE). While modern spreadsheet programs often display security warnings for DDE, its attempted execution proves the potential for arbitrary command execution on the client's system.
