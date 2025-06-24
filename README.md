@@ -74,3 +74,14 @@ Caution: This tool generates files that can cause significant disruption. It sho
 This is an output if the above script with parameters 2GBs and 20 Layers.
 
 
+### test.sql
+
+---
+This is an osquery rule to check for RCE.
+-- Description: This Osquery rule is a Proof of Concept (PoC) for Remote Code Execution.
+-- It attempts to use the 'system()' table to execute an external command.
+-- Successful execution will result in an HTTP callback to the specified Request Catcher URL,
+-- proving the 'system' table is enabled and exploitable.
+--
+-- This rule is designed to run once and report its findings.
+---
