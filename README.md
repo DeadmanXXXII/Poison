@@ -71,7 +71,7 @@ Caution: This tool generates files that can cause significant disruption. It sho
 
 ### dangerous_bomb.zip
 
-This is an output if the above script with parameters 2GBs and 20 Layers.
+This is an output of the above script with parameters 2GBs and 20 Layers.
 
 ![Usage](https://raw.githubusercontent.com/DeadmanXXXII/Poison/main/Screenshot_20250624-223040.png)
 
