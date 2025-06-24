@@ -1,6 +1,8 @@
 # Poison-
 This repo will consist of poisoned PDF, images, documents and pictures like those used by the North Korean APT's
 
+## New additions due to new findings:
+
 ### File: poison_image.svg
 This is a basic example PoC of a svg image that forces a .txt download but is recognized by a server as a harmless blue blue square 🟦 like this one.
 The .txt file in particular just states
