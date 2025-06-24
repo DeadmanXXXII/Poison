@@ -52,8 +52,8 @@ if __name__ == "__main__":
 
     # Option 1: Start with a smaller file, more layers
     # This might result in a very small compressed file.
-    initial_mb = 1 # Start with a 1MB zero file
-    layers = 10    # Go for 10 recursive layers (2^10 = 1024x expansion)
+    initial_mb = 100 # Start with a 1MB zero file
+    layers = 100    # Go for 10 recursive layers (2^10 = 1024x expansion)
                    # 1MB * 1024 = 1GB
 
     # Option 2: Larger initial file, fewer layers (if Option 1 is too slow)
