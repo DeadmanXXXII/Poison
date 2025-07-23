@@ -1,7 +1,9 @@
-# Poison-
+# Poison
 This repo will consist of poisoned PDF, images, documents and pictures like those used by the North Korean APT's
 
 ## New additions due to new findings:
+Like Polyglot extensions leading to OOB attacks and image processing bypasses on profile upload services.
+shell.php.jpg and mal.csv.jpg
 
 ### File: poison_image.svg
 This is a basic example PoC of a svg image that forces a .txt download but is recognized by a server as a harmless blue blue square 🟦 like this one.
