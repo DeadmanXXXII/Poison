@@ -3,7 +3,53 @@ This repo will consist of poisoned PDF, images, documents and pictures like thos
 
 ## New additions due to new findings:
 Like Polyglot extensions leading to OOB attacks and image processing bypasses on profile upload services.
-shell.php.jpg and mal.csv.jpg
+shell.php.jpg and mal.csv.jpg DeadmanXXXII.pdf is brand new amd you need to be careful.
+
+### DeadmanXXXII.pdf
+This is a pdf created by two python scripts.
+mintpdf.py
+```python
+from fpdf import FPDF
+
+pdf = FPDF()
+pdf.add_page()
+pdf.set_font("Arial", size=12)
+pdf.multi_cell(0, 10, "Hello if this is uploaded you have a critical vulnerability.\nContact BugCrowd and ask for DeadmanXXXII P1 dangerous file inclusion report.")
+pdf.output("container.pdf")
+```
+and
+printpdf.py
+```python
+import pikepdf
+
+# Open existing PDF
+pdf = pikepdf.open("container.pdf")
+
+# Files to embed
+files_to_embed = [
+    "shell.php",
+    "malicious.mp4",
+    "poison_image.svg",
+    "harmless.txt",
+    "mal.csv",
+    "zipbomb.py",
+    "dangerous_bomb.zip",
+    "test.sql"
+]
+
+# Attach each file
+for f in files_to_embed:
+    with open(f, "rb") as file_obj:
+        pdf.attachments[f] = file_obj.read()
+
+# Save output
+pdf.save("DeadmanXXXII.pdf")
+pdf.close()
+```
+inside the venv you see. Then if you nano the pdf to check you should see this.
+![Usage](https://raw.githubusercontent.com/DeadmanXXXII/Poison/main/Screenshot_20250822-085722.png)
+
+Now all you need isnto be able to upload this and yoi have a dangerous file inclusion vulnerability. Specifically here make sure you don't just set off the zipbomb.py as it will activate the bomb.zip this is a memory overload attack and if your system doesn't jave the space you will crash. I wouldn't worry so much about the rest with this as it is.
 
 ### File: poison_image.svg
 This is a basic example PoC of a svg image that forces a .txt download but is recognized by a server as a harmless blue blue square 🟦 like this one.
