@@ -49,7 +49,7 @@ pdf.close()
 inside the venv you see. Then if you nano the pdf to check you should see this.
 ![Usage](https://raw.githubusercontent.com/DeadmanXXXII/Poison/main/Screenshot_20250822-085722.png)
 
-Now all you need isnto be able to upload this and yoi have a dangerous file inclusion vulnerability. Specifically here make sure you don't just set off the zipbomb.py as it will activate the bomb.zip this is a memory overload attack and if your system doesn't jave the space you will crash. I wouldn't worry so much about the rest with this as it is.
+Now all you need is to be able to upload this and you have a dangerous file inclusion vulnerability. Specifically here make sure you don't just set off the zipbomb.py as it will activate the bomb.zip this is a memory overload attack and if your system doesn't jave the space you will crash. I wouldn't worry so much about the rest with this as it is.
 
 ### File: poison_image.svg
 This is a basic example PoC of a svg image that forces a .txt download but is recognized by a server as a harmless blue blue square 🟦 like this one.
