@@ -3,7 +3,7 @@ This repo will consist of poisoned PDF, images, documents and pictures like thos
 
 ## New additions due to new findings:
 Like Polyglot extensions leading to OOB attacks and image processing bypasses on profile upload services.
-shell.php.jpg and mal.csv.jpg DeadmanXXXII.pdf is brand new amd you need to be careful.
+shell.php.jpg and mal.csv.jpg DeadmanXXXII.pdf is brand new and you need to be careful.
 
 ### DeadmanXXXII.pdf
 This is a pdf created by two python scripts.
